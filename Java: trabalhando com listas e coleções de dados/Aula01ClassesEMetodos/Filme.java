@@ -1,3 +1,4 @@
+
 public class Filme {
 	String nome;
 	int anoDeLancamento;
@@ -10,6 +11,7 @@ public class Filme {
 		System.out.println("Nome do filme: " + nome);
 		System.out.println("Ano de lançamento do filme: " + anoDeLancamento);
 		System.out.println("Duração do filme: " +duracaoEmMinutos);
+		System.out.println("Incluido no plano: " +incluidoNoPlano);
 	}
 	
 	void avalia(double nota) {
