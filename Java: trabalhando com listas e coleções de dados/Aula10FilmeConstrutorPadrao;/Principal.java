@@ -11,9 +11,9 @@ import br.com.alura.screenmatch.calculos.FiltroRecomendacao;
 
 public class Principal {
 	public static void main(String [] arg) {
-		Filme filme1 = new Filme("O Poderoso Chefão"); //novo objeto
+		Filme filme1 = new Filme("O Poderoso Chefão", 1970); //novo objeto
 		//filme1.setNome("O Poderoso Chefão");
-		filme1.setAnoDeLancamento(1970);
+		//filme1.setAnoDeLancamento(1970);
 		filme1.setDuracaoEmMinutos(180);
 		filme1.setIncluidoNoPlano(true);
 		System.out.println("Duração do filme: " + filme1.getDuracaoEmMinutos());
@@ -25,18 +25,18 @@ public class Principal {
 		System.out.println("Total de avaliações: " + filme1.getTotalDeAvaliacoes());
 		System.out.println("A média das avaliações é: " + filme1.pegaMedia());
 		
-		Serie serie = new Serie();
-		serie.setNome("lost");
-		serie.setAnoDeLancamento(2000);
+		Serie serie = new Serie("lost", 2000);
+		//serie.setNome("lost");
+		//serie.setAnoDeLancamento(2000);
 		serie.exibeFichaTecnica();
 		serie.setTemporadas(10);
 		serie.setEpisodiosPorTemporada(10);
 		serie.setMinutosPorEpisodio(50);
 		System.out.println("Duração para maratonar Lost: " + serie.getDuracaoEmMinutos() + " minutos");
 		
-		Filme filme2 = new Filme("O Poderoso Chefão 2"); //novo objeto
+		Filme filme2 = new Filme("O Poderoso Chefão 2", 1972); //novo objeto
 		//filme2.setNome("O Poderoso Chefão 2");
-		filme2.setAnoDeLancamento(1972);
+		//filme2.setAnoDeLancamento(1972);
 		filme2.setDuracaoEmMinutos(80);
 		
 		CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
@@ -54,10 +54,10 @@ public class Principal {
 		episodio.setTotalVisualizacoes(300);
 		filtro.filtra(episodio);
 		
-		var filmeDoPaulo = new Filme("Dogville"); //construtor: método que tem como função a criação de um objeto na memória
+		var filmeDoPaulo = new Filme("Dogville", 2003); //construtor: método que tem como função a criação de um objeto na memória
 		filmeDoPaulo.setDuracaoEmMinutos(200);
 		//filmeDoPaulo.setNome("Dogville");
-		filmeDoPaulo.setAnoDeLancamento(2003);
+		//filmeDoPaulo.setAnoDeLancamento(2003);
 		filmeDoPaulo.avalia(10);
 		
 		ArrayList<Filme> listaDeFilmes = new ArrayList<>(); //Armazena filmes
