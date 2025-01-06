@@ -1,30 +1,44 @@
 package br.com.alura.screenmatch.modelo;
 
-import br.com.alura.screenmatch.calculos.Classificavel;
-
-public class Filme extends Titulo implements Classificavel{
-	private String diretor;
+public class Serie extends Titulo{
+	private int temporadas;
+	private int episodiosPorTemporada;
+	private boolean ativa;
+	private int minutosPorEpisodio;
 	
-	public Filme(String nome) { //Sem retorno; Nome da classe
-		this.setNome(nome);
-		// TODO Auto-generated constructor stub
-	}
-
-	public String getDiretor() {
-		return diretor;
+	public Serie(String nome, int anoDeLancamento) {
+		super(nome, anoDeLancamento);
 	}
 	
-	public void setDiretor(String diretor) {
-		this.diretor = diretor;
+	public int getTemporadas() {
+		return temporadas;
+	}
+	public void setTemporadas(int temporadas) {
+		this.temporadas = temporadas;
 	}
 	
-	@Override
-	public int getClassificacao() {
-		return (int) pegaMedia() / 2;
+	public int getEpisodiosPorTemporada() {
+		return episodiosPorTemporada;
+	}
+	public void setEpisodiosPorTemporada(int episodiosPorTemporada) {
+		this.episodiosPorTemporada = episodiosPorTemporada;
 	}
 	
-	@Override
-	public String toString() {
-		return "Filme: " + this.getNome() + " (" + this.getAnoDeLancamento() + ")";
+	public boolean getAtiva() {
+		return ativa;
+	}
+	public void setAtiva(boolean ativa) {
+		this.ativa = ativa;
+	}
+	
+	public int getMinutosPorEpisodio() {
+		return minutosPorEpisodio;
+	}
+	public void setMinutosPorEpisodio(int minutosPorEpisodio) {
+		this.minutosPorEpisodio = minutosPorEpisodio;
+	}
+	@Override // Sobrescrita
+	public int getDuracaoEmMinutos() {
+		return temporadas * episodiosPorTemporada * minutosPorEpisodio;
 	}
 }
