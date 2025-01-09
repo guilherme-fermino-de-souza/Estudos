@@ -1,0 +1,11 @@
+import math
+
+x = 9
+
+#print(math.pi) 
+#print(math.e)
+#result = math.sqrt(x) //raiz
+#result = math.ceil(x) //Rounded Up
+#result = math.flor(x) //Rounded down
+
+print(result)
