@@ -1,0 +1,18 @@
+- cd //Usado para trocar de diretório
+
+- npx create expo-app NomeProjeto --template //Criar 
+
+- npx expo star //Iniciar
+
+- expo install expo-checkbox //Checkbox
+
+- npm install @react-navigation/native //Navegação - Instalação do pacote
+
+- npx expo install react-native-screens react-native-safe-area-context //Tela
+
+- npm install @react-navigation/native-stack //Navegação
+
+- npm install react-native-animatable --save //Animações
+
+- npm install @react-native-async-storage/async-storage //Instalação
+  import AsyncStorage from '@react-native-async-storage/async-storage'
