@@ -1,0 +1,6 @@
+CREATE DATABASE bdCinema
+
+CREATE TABLE tbGenero(
+  idGenero INT PRIMARY KEY AUTO_INCREMENT
+  ,genero VARCHAR(20)
+);
