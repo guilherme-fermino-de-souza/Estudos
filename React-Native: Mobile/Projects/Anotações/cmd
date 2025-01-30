@@ -4,6 +4,8 @@
 
 - npx expo start //Iniciar
 
+- npx expo install react-dom react-native-web @expo/metro-runtime //Abrir Web
+
 - expo install expo-checkbox //Checkbox
 
 - npm install @react-navigation/native //Navegação - Instalação do pacote
