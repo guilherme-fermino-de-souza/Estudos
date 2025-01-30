@@ -2,7 +2,7 @@
 
 - npx create expo-app NomeProjeto --template //Criar 
 
-- npx expo star //Iniciar
+- npx expo start //Iniciar
 
 - expo install expo-checkbox //Checkbox
 
