@@ -4,7 +4,11 @@
 #    Tuple = () ordered and unchangeable. Duplicates OK. FASTER
 
 fruits = ["Apple", "orange", "banana", "coconut"]
-# 
+# print(dir(fruits)) //Show all the diferent atributes and methods
+# print(help(fruits)) //Documentation of the atributes and methods
+# print(len(fruits))
+# print("pineapple" in fruits) //True or False
+
 print(fruits)
 print(fruits[0])
 print(fruits[::2])
