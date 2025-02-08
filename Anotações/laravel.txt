@@ -1,5 +1,5 @@
 - laravel new nomeProjeto //Criar novo projeto PS: demora pra caramba
 
-- php artisan server //Iniciar projeto
+- php artisan serve //Iniciar projeto
 
 localhost:8000
