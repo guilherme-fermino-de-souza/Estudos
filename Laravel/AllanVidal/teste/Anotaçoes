@@ -1,0 +1,7 @@
+- public/assets/css e js //Código css e js
+
+- routes/web.php //rotas
+
+- resources/views/nomecodigo.blade.php //onde codar
+
+- resources/views/template //modelo
