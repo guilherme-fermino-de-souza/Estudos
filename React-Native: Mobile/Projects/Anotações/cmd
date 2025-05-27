@@ -1,6 +1,8 @@
 - cd //Usado para trocar de diretório
 
-- npx react-native init ou npx create-expo-app NomeProjeto --template //Criar 
+- npx react-native init ou npx create-expo-app NomeProjeto --template
+
+- npx @react-native-community/cli init nome//Criar 
 
 - npx expo start //Iniciar
 
