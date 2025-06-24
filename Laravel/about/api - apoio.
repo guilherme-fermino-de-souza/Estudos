@@ -1,0 +1,213 @@
+Criação e Utilização de API
+
+1° Parte: Laravel
+- criar projeto "composer create-project laravel/laravel:^10.0 nomeProjeto"
+
+- criar um banco no MySQL, depois configura o .env e ,utilizando o migrate, criar um banco nomeBanco com uma tabela possuindo os itens desejados;
+
+- php artisan make:migration create_nome_table; //criar tabela no banco
+
+- php artisan make:controller NomeController; //criar o controller da tabela
+
+- php artisan make:model Nome //criar o model da tabela
+
+- php artisan migrate //salvar as alterações no banco
+
+- definir as rotas no routes/api.php e verificar se o app/Http/kernel.php está correto;
+
+- inicie o servidor com php artisan serve;
+
+- verificar se o CORS está liberado em config/cors.php:
+ 'allowed_origins' => ['*'],
+
+- baixe o Postman e, em create post, coloque a URL do seu server local;
+
+- vá a aba Body e seleciona raw. no menu 'Text' selecione JSON,
+
+- na aba Headers adicione:
+Key	Value
+Content-Type	application/json
+Accept	application/json
+
+- insira os dados no JSON como:
+{
+"nomeCampo": "Valor Inserido",
+} 
+e clique em Send;
+
+
+
+2° Parte React Native:
+- - npx create-expo-app NomeProjeto --template //Criar default;
+
+- instalações: 
+npm install @react-navigation/native
+npx expo install react-native-screens react-native-safe-area-context
+npm install @react-navigation/native-stack
+npm install @react-native-async-storage/async-storage
+expo install expo-checkbox
+npm install react-native-animatable
+;
+- api:
+npm install axios
+;
+
+- criar formulário react para receber dados;
+
+- em Src/services/api.js: 
+// src/services/api.js
+import axios from 'axios';
+
+const api = axios.create({
+  baseURL: 'http://192.168.18.10:8000/api',
+});
+
+export default api;
+
+- Criação e Utilização de API
+
+1° Parte: Laravel
+- criar projeto "composer create-project laravel/laravel:^10.0 nomeProjeto"
+
+- criar um banco no MySQL, depois configura o .env e ,utilizando o migrate, criar um banco nomeBanco com uma tabela possuindo os itens desejados;
+
+- php artisan make:migration create_nome_table; //criar tabela no banco
+
+- php artisan make:controller NomeController; //criar o controller da tabela
+
+- php artisan make:model Nome //criar o model da tabela
+
+- php artisan migrate //salvar as alterações no banco
+
+- definir as rotas no routes/api.php e verificar se o app/Http/kernel.php está correto;
+
+- inicie o servidor com php artisan serve;
+
+- verificar se o CORS está liberado em config/cors.php:
+ 'allowed_origins' => ['*'],
+
+- baixe o Postman e, em create post, coloque a URL do seu server local;
+
+- vá a aba Body e seleciona raw. no menu 'Text' selecione JSON,
+
+- na aba Headers adicione:
+Key	Value
+Content-Type	application/json
+Accept	application/json
+
+- insira os dados no JSON como:
+{
+"nomeCampo": "Valor Inserido",
+} 
+e clique em Send;
+
+
+
+2° Parte React Native:
+- - npx create-expo-app NomeProjeto --template //Criar default;
+
+- instalações: 
+npm install @react-navigation/native
+npx expo install react-native-screens react-native-safe-area-context
+npm install @react-navigation/native-stack //Navegação
+npm install @react-native-async-storage/async-storage //Salvamento dentro do app
+expo install expo-checkbox
+npm install react-native-animatable //Animações
+npm install @react-navigation/drawer //Menu lateral
+npx expo install react-native-gesture-handler react-native-reanimated
+;
+- api:
+npm install axios
+;
+
+- criar formulário react para receber dados;
+
+- em Src/services/api.js: 
+// src/services/api.js
+import axios from 'axios';
+
+const api = axios.create({
+  baseURL: 'http://IP_DA_MÁQUINA:8000/api',
+});
+
+export default api;
+
+- Caso esteja testando em outro dispositivo (como celular), certifique-se de que o firewall do seu computador não esteja bloqueando a porta 8000 (ou a usada no Laravel);
+
+...Exemplo de axios para enviar dados:
+import React, { useState } from 'react';
+import { View, TextInput, Button } from 'react-native';
+import api from './src/services/api';
+
+export default function App() {
+  const [nome, setNome] = useState('');
+
+  const cadastrar = async () => {
+    try {
+      await api.post('/usuarios', { nome });
+      alert('Cadastrado com sucesso!');
+    } catch (error) {
+      console.error('Erro ao cadastrar:', error);
+    }
+  };
+
+  return (
+    <View>
+      <TextInput placeholder="Nome" value={nome} onChangeText={setNome} />
+      <Button title="Cadastrar" onPress={cadastrar} />
+    </View>
+  );
+}
+...
+
+3° Parte CRUD:
+- criar a rota no routes/api.php que será responsável pelo CRUD:
+Route::apiResouce('nome', NomeController::class);
+
+-------------READ-------------
+- atualizar Postman para GET e inserir URL conforme Controller:
+
+exemplo de código read em react:
+   import React, { useEffect, useState } from 'react';
+   import { View, Text, FlatList } from 'react-native';
+   import { useNavigation } from '@react-navigation/native';
+   import api from '../../Services/api';
+
+
+   export default function Read() {
+     const navigation = useNavigation();
+     const [usuarios, setUsuarios] = useState([]);
+
+     useEffect(() => {
+       async function carregarUsuarios() {
+         try {
+           const response = await api.get('/usuarios');
+           setUsuarios(response.data);
+         } catch (error) {
+           console.error('Erro ao buscar usuários:', error);
+         }
+       }
+
+       carregarUsuarios();
+     }, []);
+
+     return (
+       <View>
+         <Text>Lista de Usuários:</Text>
+         <FlatList
+           data={usuarios}
+           keyExtractor={(item) => item.id.toString()}
+           renderItem={({ item }) => (
+             <Text>{item.nome}</Text>
+           )}
+         />
+       </View>
+     );
+   }
+...
+
+-------------UPDATE e DELETE-------------
+- verificar se o Controller possui os métodos Update e Destroy;
+
+- no Postman se usa PUT para Update e DELETE para deletar(¯\_(ツ)_/¯);
+
